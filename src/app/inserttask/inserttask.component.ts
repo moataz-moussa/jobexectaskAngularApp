@@ -11,14 +11,12 @@ import { NgForm } from '@angular/forms';
 export class InserttaskComponent implements OnInit {
   private jobs: job[] = [];
    
-
-
   constructor() { }
 
   ngOnInit() {
     
   }
-
+  //Gets input from the user from the form and push each job in to the job list
   onSubmitTask(form: NgForm){
     const value = form.value;
     const newJob = new job(value.jobname);
