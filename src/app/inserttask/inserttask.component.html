@@ -1,0 +1,24 @@
+ <div class="center">
+            <div class="col-xs-12">
+                <form (ngSubmit)="onSubmitTask(f)" #f="ngForm">
+                        <div class="form-group" >
+                            <label for="job">Job Name</label>
+                            <input type="text" id="jobname" class="form-control" name="jobname" ngModel required>
+                          </div>
+                          <div class="wrapper">
+                              <button class="btn btn-success" type="submit" [disabled]="!f.valid" >Insert</button>
+                          </div>
+                        <hr>
+                        <p align="center">Job List -------------- Status</p>
+                        <ul class="list-group">
+                        <a class="list-group-item" align="center"
+                        *ngFor="let job of jobs; let i = index"
+                        > {{ job.name }} ----- Idle</a>
+                       </ul>
+                       <div class="wrapper">
+                          <button class="btn btn-primary" type="button" (click)="onRun()">Run</button>
+                       </div>
+                 </form>
+             </div>
+</div>
+
