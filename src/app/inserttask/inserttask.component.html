@@ -1,15 +1,20 @@
  <div class="center">
             <div class="col-xs-12">
                 <form (ngSubmit)="onSubmitTask(f)" #f="ngForm">
-                        <div class="form-group" >
-                            <label for="job">Job Name</label>
-                            <input type="text" id="jobname" class="form-control" name="jobname" ngModel required>
+                        <div class="form-group" style="text-align: center" >
+                            <label for="job" >Job Name</label>
+                            <input type="text" id="jobname" style="width:50% ;margin: auto; text-align: center" class="form-control" name="jobname" ngModel required>
                           </div>
                           <div class="wrapper">
                               <button class="btn btn-success" type="submit" [disabled]="!f.valid" >Insert</button>
                           </div>
-                        <hr>
-                        <p align="center">Job List -------------- Status</p>
+                          <hr>
+                          <div class="form-group" style="text-align: center" >
+                          <label for="thread">Number of Threads</label>
+                          <input type="number"  id="threadnumber" style="width:14%; margin: auto; text-align: center" class="form-control" name="threadnumber" (input)="onInitialize($event)">
+                        </div>
+                          <hr>
+                        <p align="center">Job List -------------- Status | Initialized Thread(s): {{numberOfThreads}}</p>
                         <ul class="list-group">
                         <a class="list-group-item" align="center"
                         *ngFor="let job of jobs; let i = index"
